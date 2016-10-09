@@ -1,0 +1,8 @@
+In order for the Webcam to work, you need to install OpenCV.
+Windows instructions:
+-see http://code.google.com/p/javacv/wiki/Windows7AndOpenCV
+-rather than extract the code at the root of C, I put the dlls from opencv\build\x86\vc10\bin and from opencv\build\common\tbb\ia32\vc10 into C:\Program Files\OpenCV, and then added that to my Windows path
+
+Mac instructions:
+-I found a link to http://vislab.cs.vt.edu/~vislab/wiki/index.php?title=Vision, which has a pre-built installer for OpenCV.
+  

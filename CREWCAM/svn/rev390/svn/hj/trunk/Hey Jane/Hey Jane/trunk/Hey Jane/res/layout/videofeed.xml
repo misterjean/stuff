@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:orientation="vertical"
+
+    android:layout_width="fill_parent"
+
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:gravity="bottom|center_horizontal">
+
+        <SurfaceView
+            android:id="@+id/videoFeedSurface"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:id="@+id/videoFeedInfoContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+
+            <LinearLayout
+                android:id="@+id/videoFeedInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#aa000000"
+                android:orientation="vertical" android:gravity="right">
+
+                <TextView
+                    android:id="@+id/videoTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Large Text"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="40px" />
+
+                <TextView
+                    android:id="@+id/videoOwnerText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Medium Text"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="25px" />
+
+                <FrameLayout
+                    android:id="@+id/videoFeedListFrame"
+                    android:layout_width="wrap_content"
+                    android:layout_height="84dp" android:layout_gravity="right">
+
+                    <com.android.heyjane.customlistview.HorizontialListView
+                        android:id="@+id/videoFeedListView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_gravity="right">
+                    </com.android.heyjane.customlistview.HorizontialListView>
+                </FrameLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tagText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Large Text"
+                android:textAppearance="?android:attr/textAppearanceLarge" android:textStyle="bold" android:textSize="50px"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

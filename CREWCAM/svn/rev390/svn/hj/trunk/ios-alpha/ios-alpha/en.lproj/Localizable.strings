@@ -1,0 +1,54 @@
+/* 
+  Localizable.strings
+  Crewcam
+
+  Created by jean-elie jean-gilles on 12-06-14.
+  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+*/
+
+/*the following strings are specifically for alert dialogs*/
+
+//ON THE SPLASH PAGE
+"ITS_LOCKED" = "Sadly, Crewcam is in a temporary lockdown.  Please try again later.";
+"LOCKED" = "Lockdown!";
+
+"NO_INVITE_ALERT_TITLE" = "No invite!";
+"NO_INVITE_ALERT_MESSAGE" = "Crewcam is currently only available to new users via invitations.  Ask one of your friends to invite you or request an invite from the developers!";
+
+"NO_INTERNET_ALERT_TITLE" = "No internet connection";
+"NO_INTERNET_ALERT_TEXT" = "Oddly enough, our application requires an active internet connection.";
+
+"LOGIN_FAILED_TITLE" = "Login Failed!";
+"CANT_FB_CONNECT" = "Unable to authenticate with Facebook.";
+
+//UPLOADS
+"CREW_SELECT_TITLE" = "You have to select a crew!";
+"CREW_SELECT_TEXT" = "You have to select a crew!";
+
+"UPLOAD_ERROR_ALERT_TITLE" = "Uh oh...";
+"UPLOAD_ERROR_ALERT_TEXT" = "We dropped the ball on this one.  Your upload failed.";
+
+"VIDEO_SAVED_LOCALLY" = "Video was saved locally.";
+"ASK_TO_SAVE_LOCALLY" = "Want us to save the video locally so you can upload it later?";
+
+//CREW VIEW
+"LONELY_ADD_CREWS_TEXT" = "Hmm... You don't seem to be a member of any crews.  Click the \"+\" button to add one, or check the invites tab to see if anyone has invited you!";
+
+"LEAVE_CREW" = "Leave Crew";
+"LEAVING_CREW_CONFIRMATION" = "Are you sure you want to leave? You will be missed!";
+
+"ERROR_LEAVING_TITLE" = "Uh Oh...";
+"ERROR_LEAVING_TEXT" = "Error leaving the crew.  Try again later.";
+
+//CREWS VIEW
+"LOGOUT_CONFIRM_TITLE" = "Logout";
+"LOGOUT_CONFIRM_TEXT" = "Are you sure you want to log out?";
+
+//INVITES VIA FACEBOOK
+"FACEBOOK_INVITE_CAPTION_TEXT" = "The easiest way to do mobile video messaging.  Available now on the App Store!";
+"FACEBOOK_INVITE_IMAGE_URL" = "http://crewc.am/crewcam_icon.png";
+"FACEBOOK_INVITE_DESCRIPTION_TEXT" = "";
+
+//INVITE LINKS
+"INVITE_CREWCAM_URL" = "http://www.crewc.am";
+

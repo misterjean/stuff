@@ -1,0 +1,308 @@
+//
+//  CCVideoViewController.m
+//  ios-alpha
+//
+//  Created by Ryan Brink on 12-04-30.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import "CCCrewViewController.h"
+
+@interface CCCrewViewController ()
+
+@end
+
+@implementation CCCrewViewController
+@synthesize videoTableView;
+@synthesize crewForView;
+@synthesize videoPlayer;
+@synthesize sortedVideoList;
+@synthesize noVideosLabel;
+@synthesize crewObjectID;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    
+    return self;
+}
+
+- (IBAction)onBackButtonPressed:(id)sender 
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    /*
+      Not the most straightforward way but here's how this works: 
+      When you return to this view, crewForView is non nil due to being strong, to prevent it from being erased when the app goes to the background
+      However the crews's objectID s also strong, so technically we know what crew we should be updating now that we've come back into the view
+      Using the objectID we then look through the shared crew array and reset crewForView to the correctly updated crew based on the objectID
+      This will allow us to update the view to use the most up to date crew information (it will contain the new video that has been uploaded)
+     */
+    
+    
+    if (crewForView != nil && [self crewObjectID] != nil)
+    {
+        
+        [self setCrewForView:[[[CCCoreManager sharedInstance] server] getCrewFromObjectID:crewObjectID]]; 
+        
+    }
+    
+    if ([[crewForView videos] count] == 0)
+    {
+        [noVideosLabel setHidden:NO];
+        [videoTableView setHidden:YES];
+    }
+    else 
+    {
+        [noVideosLabel setHidden:YES];
+        [videoTableView setHidden:NO];
+        sortedVideoList  = [[NSArray alloc] initWithArray:[crewForView videos]];
+        [[self videoTableView] reloadData];
+    }
+    
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self setTitle:[crewForView name]];
+    [self setCrewObjectID:[crewForView objectID]];
+    [videoTableView setDataSource:self];
+}
+
+- (void)viewDidUnload
+{
+    [self setVideoTableView:nil];
+    [self setNoVideosLabel:nil];
+    [self setCrewObjectID:nil];
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [[crewForView videos] count];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{	 
+    static NSString *CellIdentifier = @"videoTableCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
+    id<CCVideo> videoForCell = [[crewForView videos] objectAtIndex:[indexPath row]];
+    
+    UIImageView *profilePicImageView = (UIImageView *)[cell viewWithTag:VIDEO_OWNER_PICTURE_TAG]; 
+    
+    if ([[videoForCell owner] userImageData])
+    {
+        [profilePicImageView setImage:[UIImage imageWithData:[[videoForCell owner] userImageData]]];
+        profilePicImageView.contentScaleFactor = [[UIScreen mainScreen] scale];
+    }
+    else 
+    {
+        [profilePicImageView setImage:[UIImage imageNamed:@"default-user.png"]];
+    }
+        
+    UILabel *videoTitleView = (UILabel *)[cell viewWithTag:VIDEO_TITLE_TAG];
+    NSString *videoTitle = [[NSString alloc] initWithFormat:@"\"%@\"", [videoForCell name]];
+    [videoTitleView setText:videoTitle];
+    
+    UIImageView *videoPreviewImageView = (UIImageView *)[cell viewWithTag:VIDEO_PREVIEW_PICTURE_TAG];
+    
+    // Start downloading the image and display it on a seperate thread
+    if ([videoForCell videoImageData] == nil)
+    {
+        [videoForCell loadThumbnailWithNewThread:NO];
+        UIImage *thumbNail = [[UIImage alloc] initWithData:[videoForCell videoImageData]];
+        [videoPreviewImageView setImage:thumbNail];
+    }
+    else
+    {
+        UIImage *thumbNail = [[UIImage alloc] initWithData:[videoForCell videoImageData]];
+        [videoPreviewImageView setImage:thumbNail];
+    }
+
+    UILabel *ownerNameLabel = (UILabel *)[cell viewWithTag:VIDEO_OWNER_NAME_TAG];
+    [ownerNameLabel setText:[[videoForCell owner] name]];
+    
+    UILabel *videoLengthLabel = (UILabel *)[cell viewWithTag: VIDEO_LENGTH_TAG];
+    [videoLengthLabel setText: @"20 minutes"];
+    
+    UIButton *playVideoButton = (UIButton *)[cell viewWithTag:VIDEO_PLAY_BUTTON_TAG];
+    [playVideoButton addTarget:self action:@selector(playSelectedMovie:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *videoViewsButton = (UIButton *)[cell viewWithTag:VIDEO_VIEWS_BUTTON_TAG];
+    [videoViewsButton addTarget:self action:@selector(loadViewersList:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UILabel *distanceLabel = (UILabel *)[cell viewWithTag:VIDEO_DISTANCE_AWAY_TAG];
+    
+    if (nil != [videoForCell location] && nil != [[[CCCoreManager sharedInstance]locationManager] getCurrentLocation])
+    {
+        CLLocationDistance distance = [[videoForCell location] distanceFromLocation:[[[CCCoreManager sharedInstance]locationManager] getCurrentLocation]];            
+        NSString *distanceString;
+        if ((distance/1000) < 5)
+        {
+            distanceString = [NSString stringWithFormat:@"Right nearby!"];
+        }
+        else if((distance/1000) > 100)
+        {
+            distanceString = [NSString stringWithFormat:@"More than 100 km away."];
+        }
+        else 
+        {
+            distanceString = [NSString stringWithFormat:@"%.2f km away.", distance/1000];            
+        }
+        
+        distanceLabel.text = distanceString;
+    }
+    
+    NSTimeInterval timeSincePosting = [[NSDate date] timeIntervalSinceDate:[videoForCell createdDate]];
+    
+    NSString *timeSinceString;
+    
+    if (timeSincePosting/60 < 1) 
+    {
+        timeSinceString = [[NSString alloc] initWithFormat:@"Posted %.f seconds ago", timeSincePosting];    
+    }
+    else if (timeSincePosting/60 < 60)
+    {
+        timeSinceString = [[NSString alloc] initWithFormat:@"Posted %.f minutes ago", timeSincePosting/60];            
+    }    
+    else if (timeSincePosting/60/60 < 24)
+    {
+        timeSinceString = [[NSString alloc] initWithFormat:@"Posted %.f hours ago", timeSincePosting/60/60];
+    }
+    else if (timeSincePosting/60/60 < 24*31)
+    {
+        timeSinceString = [[NSString alloc] initWithFormat:@"Posted %.f days ago", timeSincePosting/60/60/24];
+    }
+    else 
+    {
+        timeSinceString = [[NSString alloc] initWithFormat:@"Posted %.f months ago", timeSincePosting/60/60/24/31];
+    }
+    
+    UILabel *timePostedLabel = (UILabel *)[cell viewWithTag:VIDEO_TIME_POSTED_TAG];
+    [timePostedLabel setText:timeSinceString];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+//Called when Play button is pressed in cell
+- (void)playSelectedMovie:(id)sender
+{
+    UIButton *button = (UIButton *)sender;
+    // Get the UITableViewCell which is the superview of the UITableViewCellContentView which is the superview of the UIButton
+    UITableViewCell * cell = (UITableViewCell *) [[button superview] superview];
+    int row = [videoTableView indexPathForCell:cell].row;
+    NSLog(@"Button pressed at row: %d", row);
+    
+    id<CCVideo> videoToPlay = [[crewForView videos] objectAtIndex:row];
+    NSURL *url = [[NSURL alloc]initWithString:[videoToPlay videoURL]];
+    
+    self.videoPlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
+    self.videoPlayer.allowsAirPlay=YES;
+    
+    // This forces audio to play even if mute switch is set
+    NSError *error;
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error];
+    
+    if (error)
+    {
+        [[[CCCoreManager sharedInstance] logger] logAtLogLevel:ccLogLevelDebug message:@"Audio Session Error: %@, %@", error, [error userInfo]];
+    }
+    
+    [videoToPlay addWatchedByWithUser:[[[CCCoreManager sharedInstance] server] currentUser]];
+    
+    [self.view addSubview:self.videoPlayer.view];
+    [[NSNotificationCenter defaultCenter] 
+     addObserver:self 
+     selector:@selector(playMovieFinished:) 
+     name:MPMoviePlayerPlaybackDidFinishNotification 
+     object:self.videoPlayer];
+    
+    [self.videoPlayer setFullscreen:YES animated:YES];  
+}
+
+//Called when viewers button is pressed in cell
+- (void)loadViewersList:(id)sender
+{
+    UIButton *button = (UIButton *)sender;
+    // Get the UITableViewCell which is the superview of the UITableViewCellContentView which is the superview of the UIButton
+    UITableViewCell * cell = (UITableViewCell *) [[button superview] superview];
+    int row = [videoTableView indexPathForCell:cell].row;
+    selectedVideo = [[crewForView videos] objectAtIndex:row];
+    [self performSegueWithIdentifier:@"viewersListPush" sender:self];
+}
+
+- (void)playMovieFinished:(NSNotification*)theNotification{
+    [[NSNotificationCenter defaultCenter]
+     removeObserver:self
+     name:MPMoviePlayerPlaybackDidFinishNotification
+     object:self.videoPlayer];
+    
+    [self.videoPlayer.view removeFromSuperview];
+}
+
+- (IBAction)onLeaveButtonPressed:(id)sender 
+{
+    [[[CCCoreManager sharedInstance] server] removeCurrentUserFromCrew:crewForView useNewThread:NO];    
+    [crewForView unsubscribeToNotifications];
+    [[[CCCoreManager sharedInstance] server] startReloadingTheCurrentUsersCrewsWithDelegateOrNil:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"addMemberSegue"])
+    {
+        CCNewCrewViewController *vc = [segue destinationViewController];
+        [vc setPassedCrew:crewForView];
+    }
+    else if ([[segue identifier] isEqualToString:@"membersListPush"])
+    {
+        CCCrewMembersTableViewController *crewMembersView = [segue destinationViewController];
+        [crewMembersView setMembers:[crewForView members]];
+        [crewMembersView setViewHeaderText:@"Crew Members"];
+        [crewMembersView setTotalText:@"Total Members"];
+    }
+    else if ([[segue identifier] isEqualToString:@"viewersListPush"])
+    {
+        CCCrewMembersTableViewController *crewMembersView = [segue destinationViewController];
+        [crewMembersView setMembers:[selectedVideo usersThatWatched]];
+        [crewMembersView setViewHeaderText:@"Viewed By"];
+        [crewMembersView setTotalText:@"Total Viewers"];
+    }
+    else if ([[segue identifier] isEqualToString:@"commentsSegue"])
+    {
+        UIButton *button = (UIButton *)sender;
+        // Get the UITableViewCell which is the superview of the UITableViewCellContentView which is the superview of the UIButton
+        UITableViewCell * cell = (UITableViewCell *) [[button superview] superview];
+        int row = [videoTableView indexPathForCell:cell].row;
+        selectedVideo = [[crewForView videos] objectAtIndex:row];
+        
+        CCVideoCommentsViewController *vc = [segue destinationViewController];
+        [vc setVideo:selectedVideo];
+    }
+}
+@end

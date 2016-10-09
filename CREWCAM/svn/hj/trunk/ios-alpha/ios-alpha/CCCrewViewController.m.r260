@@ -1,0 +1,136 @@
+//
+//  CCVideoViewController.m
+//  ios-alpha
+//
+//  Created by Ryan Brink on 12-04-30.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import "CCCrewViewController.h"
+
+@interface CCCrewViewController ()
+
+@end
+
+@implementation CCCrewViewController
+@synthesize videoTableView;
+@synthesize crewForView;
+@synthesize sortedVideoList;
+@synthesize noVideosLabel;
+@synthesize topBarView;
+
+- (IBAction)onBackButtonPressed:(id)sender 
+{
+    [self dismissViewControllerAnimated:YES completion:nil];        
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [crewForView addCrewUpdateListener:self];
+    
+    [videoTableView setDataSource:self];
+    
+    topBarView.layer.shadowRadius = 10;
+    topBarView.layer.shadowOpacity = 1;
+    
+    [self reloadVideosOnBackgroundThread];
+    
+    if ([[crewForView ccVideos] count] > 0)
+    {
+        [videoTableView setHidden:NO];
+        [noVideosLabel setHidden:YES];
+    }    
+    else if ([crewForView getNumberOfVideos] > 0)
+    {
+        [noVideosLabel setText:@"Loading videos..."];
+    }
+    
+    [self setTitle:[crewForView getName]];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+}
+
+- (void)reloadVideosOnBackgroundThread
+{    
+    [crewForView loadVideosInBackgroundWithBlockOrNil:nil];
+}
+
+- (void) addedNewVideosAtIndexes:(NSArray *) newVideoIndexes andRemovedVideosAtIndexes:(NSArray *) deletedVideoIndexes
+{
+
+    [videoTableView setHidden:NO];
+    [noVideosLabel setHidden:YES];
+    
+    [videoTableView beginUpdates];
+
+    [videoTableView deleteRowsAtIndexPaths:deletedVideoIndexes withRowAnimation:UITableViewRowAnimationFade];
+    [videoTableView insertRowsAtIndexPaths:newVideoIndexes withRowAnimation:UITableViewRowAnimationFade];            
+    
+    [videoTableView endUpdates];    
+}
+
+- (void)viewDidUnload
+{
+    [self setVideoTableView:nil];
+    [self setNoVideosLabel:nil];
+    
+    [crewForView removeCrewUpdateListener:self];
+    
+    [self setTopBarView:nil];
+    [super viewDidUnload];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [[crewForView ccVideos] count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{	 
+    static NSString *CellIdentifier = @"videoTableCell";
+    CCVideoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    id<CCVideo> videoForCell = [[crewForView ccVideos] objectAtIndex:[indexPath row]];
+    
+    if (cell == nil)
+    {
+        cell = [[CCVideoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    [cell initializeWithVideo:videoForCell andNavigationController:[self navigationController]];
+    
+    return cell;
+}
+
+- (IBAction)onLeaveButtonPressed:(id)sender 
+{
+    [[[[CCCoreManager sharedInstance] server] currentUser] removeUserFromCrew:crewForView WithBlockOrNil:nil];
+    
+    [[self navigationController] popViewControllerAnimated:YES];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"addMemberSegue"])
+    {
+        CCNewCrewViewController *vc = [segue destinationViewController];
+        [vc setPassedCrew:crewForView];
+    }
+    else if ([[segue identifier] isEqualToString:@"membersListPush"])
+    {
+        CCCrewMembersViewController *crewMembersView = [segue destinationViewController];
+        [crewMembersView setCrewForView:crewForView];
+    }
+}
+@end

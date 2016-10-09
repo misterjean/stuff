@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, MainActivity!</string>
+    <string name="app_name">Hey Jane</string>
+    <color name="white2">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="orange">#FFB74A</color>
+
+</resources>

@@ -1,0 +1,480 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		330D7500152C9F7C00A282A4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330D74FF152C9F7C00A282A4 /* UIKit.framework */; };
+		330D7502152C9F7C00A282A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330D7501152C9F7C00A282A4 /* Foundation.framework */; };
+		330D7504152C9F7C00A282A4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330D7503152C9F7C00A282A4 /* CoreGraphics.framework */; };
+		330D750A152C9F7C00A282A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 330D7508152C9F7C00A282A4 /* InfoPlist.strings */; };
+		330D750C152C9F7C00A282A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 330D750B152C9F7C00A282A4 /* main.m */; };
+		330D7510152C9F7C00A282A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 330D750F152C9F7C00A282A4 /* AppDelegate.m */; };
+		330D7513152C9F7C00A282A4 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330D7511152C9F7C00A282A4 /* MainStoryboard_iPhone.storyboard */; };
+		330D7516152C9F7C00A282A4 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330D7514152C9F7C00A282A4 /* MainStoryboard_iPad.storyboard */; };
+		330D7519152C9F7C00A282A4 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330D7518152C9F7C00A282A4 /* FirstViewController.m */; };
+		330D751B152C9F7C00A282A4 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 330D751A152C9F7C00A282A4 /* first.png */; };
+		330D751D152C9F7C00A282A4 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 330D751C152C9F7C00A282A4 /* first@2x.png */; };
+		330D7520152C9F7C00A282A4 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330D751F152C9F7C00A282A4 /* SecondViewController.m */; };
+		330D7522152C9F7C00A282A4 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 330D7521152C9F7C00A282A4 /* second.png */; };
+		330D7524152C9F7C00A282A4 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 330D7523152C9F7C00A282A4 /* second@2x.png */; };
+		330D752C152C9F7C00A282A4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330D752B152C9F7C00A282A4 /* SenTestingKit.framework */; };
+		330D752D152C9F7C00A282A4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330D74FF152C9F7C00A282A4 /* UIKit.framework */; };
+		330D752E152C9F7C00A282A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330D7501152C9F7C00A282A4 /* Foundation.framework */; };
+		330D7536152C9F7C00A282A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 330D7534152C9F7C00A282A4 /* InfoPlist.strings */; };
+		330D7539152C9F7C00A282A4 /* HeyJaneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 330D7538152C9F7C00A282A4 /* HeyJaneTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		330D752F152C9F7C00A282A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 330D74F2152C9F7B00A282A4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 330D74FA152C9F7C00A282A4;
+			remoteInfo = HeyJane;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		330D74FB152C9F7C00A282A4 /* HeyJane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeyJane.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		330D74FF152C9F7C00A282A4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		330D7501152C9F7C00A282A4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		330D7503152C9F7C00A282A4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		330D7507152C9F7C00A282A4 /* HeyJane-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HeyJane-Info.plist"; sourceTree = "<group>"; };
+		330D7509152C9F7C00A282A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		330D750B152C9F7C00A282A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		330D750D152C9F7C00A282A4 /* HeyJane-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HeyJane-Prefix.pch"; sourceTree = "<group>"; };
+		330D750E152C9F7C00A282A4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		330D750F152C9F7C00A282A4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		330D7512152C9F7C00A282A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		330D7515152C9F7C00A282A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		330D7517152C9F7C00A282A4 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		330D7518152C9F7C00A282A4 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		330D751A152C9F7C00A282A4 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		330D751C152C9F7C00A282A4 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		330D751E152C9F7C00A282A4 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		330D751F152C9F7C00A282A4 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		330D7521152C9F7C00A282A4 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		330D7523152C9F7C00A282A4 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		330D752A152C9F7C00A282A4 /* HeyJaneTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeyJaneTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		330D752B152C9F7C00A282A4 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		330D7533152C9F7C00A282A4 /* HeyJaneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HeyJaneTests-Info.plist"; sourceTree = "<group>"; };
+		330D7535152C9F7C00A282A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		330D7537152C9F7C00A282A4 /* HeyJaneTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeyJaneTests.h; sourceTree = "<group>"; };
+		330D7538152C9F7C00A282A4 /* HeyJaneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeyJaneTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		330D74F8152C9F7C00A282A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				330D7500152C9F7C00A282A4 /* UIKit.framework in Frameworks */,
+				330D7502152C9F7C00A282A4 /* Foundation.framework in Frameworks */,
+				330D7504152C9F7C00A282A4 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		330D7526152C9F7C00A282A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				330D752C152C9F7C00A282A4 /* SenTestingKit.framework in Frameworks */,
+				330D752D152C9F7C00A282A4 /* UIKit.framework in Frameworks */,
+				330D752E152C9F7C00A282A4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		330D74F0152C9F7B00A282A4 = {
+			isa = PBXGroup;
+			children = (
+				330D7505152C9F7C00A282A4 /* HeyJane */,
+				330D7531152C9F7C00A282A4 /* HeyJaneTests */,
+				330D74FE152C9F7C00A282A4 /* Frameworks */,
+				330D74FC152C9F7C00A282A4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		330D74FC152C9F7C00A282A4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				330D74FB152C9F7C00A282A4 /* HeyJane.app */,
+				330D752A152C9F7C00A282A4 /* HeyJaneTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		330D74FE152C9F7C00A282A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				330D74FF152C9F7C00A282A4 /* UIKit.framework */,
+				330D7501152C9F7C00A282A4 /* Foundation.framework */,
+				330D7503152C9F7C00A282A4 /* CoreGraphics.framework */,
+				330D752B152C9F7C00A282A4 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		330D7505152C9F7C00A282A4 /* HeyJane */ = {
+			isa = PBXGroup;
+			children = (
+				330D750E152C9F7C00A282A4 /* AppDelegate.h */,
+				330D750F152C9F7C00A282A4 /* AppDelegate.m */,
+				330D7511152C9F7C00A282A4 /* MainStoryboard_iPhone.storyboard */,
+				330D7514152C9F7C00A282A4 /* MainStoryboard_iPad.storyboard */,
+				330D7517152C9F7C00A282A4 /* FirstViewController.h */,
+				330D7518152C9F7C00A282A4 /* FirstViewController.m */,
+				330D751A152C9F7C00A282A4 /* first.png */,
+				330D751C152C9F7C00A282A4 /* first@2x.png */,
+				330D751E152C9F7C00A282A4 /* SecondViewController.h */,
+				330D751F152C9F7C00A282A4 /* SecondViewController.m */,
+				330D7521152C9F7C00A282A4 /* second.png */,
+				330D7523152C9F7C00A282A4 /* second@2x.png */,
+				330D7506152C9F7C00A282A4 /* Supporting Files */,
+			);
+			path = HeyJane;
+			sourceTree = "<group>";
+		};
+		330D7506152C9F7C00A282A4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				330D7507152C9F7C00A282A4 /* HeyJane-Info.plist */,
+				330D7508152C9F7C00A282A4 /* InfoPlist.strings */,
+				330D750B152C9F7C00A282A4 /* main.m */,
+				330D750D152C9F7C00A282A4 /* HeyJane-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		330D7531152C9F7C00A282A4 /* HeyJaneTests */ = {
+			isa = PBXGroup;
+			children = (
+				330D7537152C9F7C00A282A4 /* HeyJaneTests.h */,
+				330D7538152C9F7C00A282A4 /* HeyJaneTests.m */,
+				330D7532152C9F7C00A282A4 /* Supporting Files */,
+			);
+			path = HeyJaneTests;
+			sourceTree = "<group>";
+		};
+		330D7532152C9F7C00A282A4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				330D7533152C9F7C00A282A4 /* HeyJaneTests-Info.plist */,
+				330D7534152C9F7C00A282A4 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		330D74FA152C9F7C00A282A4 /* HeyJane */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 330D753C152C9F7C00A282A4 /* Build configuration list for PBXNativeTarget "HeyJane" */;
+			buildPhases = (
+				330D74F7152C9F7C00A282A4 /* Sources */,
+				330D74F8152C9F7C00A282A4 /* Frameworks */,
+				330D74F9152C9F7C00A282A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HeyJane;
+			productName = HeyJane;
+			productReference = 330D74FB152C9F7C00A282A4 /* HeyJane.app */;
+			productType = "com.apple.product-type.application";
+		};
+		330D7529152C9F7C00A282A4 /* HeyJaneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 330D753F152C9F7D00A282A4 /* Build configuration list for PBXNativeTarget "HeyJaneTests" */;
+			buildPhases = (
+				330D7525152C9F7C00A282A4 /* Sources */,
+				330D7526152C9F7C00A282A4 /* Frameworks */,
+				330D7527152C9F7C00A282A4 /* Resources */,
+				330D7528152C9F7C00A282A4 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				330D7530152C9F7C00A282A4 /* PBXTargetDependency */,
+			);
+			name = HeyJaneTests;
+			productName = HeyJaneTests;
+			productReference = 330D752A152C9F7C00A282A4 /* HeyJaneTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		330D74F2152C9F7B00A282A4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 330D74F5152C9F7B00A282A4 /* Build configuration list for PBXProject "HeyJane" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 330D74F0152C9F7B00A282A4;
+			productRefGroup = 330D74FC152C9F7C00A282A4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				330D74FA152C9F7C00A282A4 /* HeyJane */,
+				330D7529152C9F7C00A282A4 /* HeyJaneTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		330D74F9152C9F7C00A282A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				330D750A152C9F7C00A282A4 /* InfoPlist.strings in Resources */,
+				330D7513152C9F7C00A282A4 /* MainStoryboard_iPhone.storyboard in Resources */,
+				330D7516152C9F7C00A282A4 /* MainStoryboard_iPad.storyboard in Resources */,
+				330D751B152C9F7C00A282A4 /* first.png in Resources */,
+				330D751D152C9F7C00A282A4 /* first@2x.png in Resources */,
+				330D7522152C9F7C00A282A4 /* second.png in Resources */,
+				330D7524152C9F7C00A282A4 /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		330D7527152C9F7C00A282A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				330D7536152C9F7C00A282A4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		330D7528152C9F7C00A282A4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		330D74F7152C9F7C00A282A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				330D750C152C9F7C00A282A4 /* main.m in Sources */,
+				330D7510152C9F7C00A282A4 /* AppDelegate.m in Sources */,
+				330D7519152C9F7C00A282A4 /* FirstViewController.m in Sources */,
+				330D7520152C9F7C00A282A4 /* SecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		330D7525152C9F7C00A282A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				330D7539152C9F7C00A282A4 /* HeyJaneTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		330D7530152C9F7C00A282A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 330D74FA152C9F7C00A282A4 /* HeyJane */;
+			targetProxy = 330D752F152C9F7C00A282A4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		330D7508152C9F7C00A282A4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				330D7509152C9F7C00A282A4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		330D7511152C9F7C00A282A4 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				330D7512152C9F7C00A282A4 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		330D7514152C9F7C00A282A4 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				330D7515152C9F7C00A282A4 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		330D7534152C9F7C00A282A4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				330D7535152C9F7C00A282A4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		330D753A152C9F7C00A282A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		330D753B152C9F7C00A282A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		330D753D152C9F7C00A282A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HeyJane/HeyJane-Prefix.pch";
+				INFOPLIST_FILE = "HeyJane/HeyJane-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		330D753E152C9F7C00A282A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HeyJane/HeyJane-Prefix.pch";
+				INFOPLIST_FILE = "HeyJane/HeyJane-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		330D7540152C9F7D00A282A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HeyJane.app/HeyJane";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HeyJane/HeyJane-Prefix.pch";
+				INFOPLIST_FILE = "HeyJaneTests/HeyJaneTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		330D7541152C9F7D00A282A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HeyJane.app/HeyJane";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HeyJane/HeyJane-Prefix.pch";
+				INFOPLIST_FILE = "HeyJaneTests/HeyJaneTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		330D74F5152C9F7B00A282A4 /* Build configuration list for PBXProject "HeyJane" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				330D753A152C9F7C00A282A4 /* Debug */,
+				330D753B152C9F7C00A282A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		330D753C152C9F7C00A282A4 /* Build configuration list for PBXNativeTarget "HeyJane" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				330D753D152C9F7C00A282A4 /* Debug */,
+				330D753E152C9F7C00A282A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		330D753F152C9F7D00A282A4 /* Build configuration list for PBXNativeTarget "HeyJaneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				330D7540152C9F7D00A282A4 /* Debug */,
+				330D7541152C9F7D00A282A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 330D74F2152C9F7B00A282A4 /* Project object */;
+}

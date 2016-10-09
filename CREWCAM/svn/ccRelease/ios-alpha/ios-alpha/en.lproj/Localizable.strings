@@ -1,0 +1,90 @@
+/* 
+  Localizable.strings
+  Crewcam
+
+  Created by jean-elie jean-gilles on 12-06-14.
+  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+*/
+
+/*the following strings are specifically for alert dialogs*/
+
+//ON THE SPLASH PAGE
+"ITS_LOCKED" = "Sadly, Crewcam is in a temporary lockdown.  Please try again later.";
+"LOCKED" = "Lockdown!";
+
+"NO_INVITE_ALERT_TITLE" = "No invite!";
+"NO_INVITE_ALERT_MESSAGE" = "Crewcam is currently only available to new users via invitations.  Ask one of your friends to invite you or request an invite from the developers!";
+
+"NO_INTERNET_ALERT_TITLE" = "No internet connection";
+"NO_INTERNET_ALERT_TEXT" = "Oddly enough, our application requires an active internet connection.";
+
+"LOGIN_FAILED_TITLE" = "Login Failed!";
+"SIGN_UP_FAILED" = "Sign up Failed!";  
+"CANT_FB_CONNECT" = "Unable to authenticate with Facebook.";
+"CANT_EMAIL_CONNECT" = "Unable to authenticate Email/Password combination";
+"PASSWORDS_DONT_MATCH" = "The two passwords you entered were not identical";
+"INVALID_EMAIL" = "Please enter a valid email address";
+"NO_PASSWORD_ENTERED" = "Please enter a password";
+"EMAIL_IN_USE" = "Account with this email aleady exists.";
+"EMAIL_IN_USE_FACEBOOK" = "This account already exists and was connected through Facebook. Please login with Facebook to use the app.";
+"PASSWORD_BLANK" = "password field is blank";
+"EMAIL_DOES_NOT_EXIST" = "We don't have an account with that email...";
+"NEW_PASSWORD_ERROR" = "Your two passwords do not match or the password field is blank.";
+"EXISTING_EMAIL_ACCOUNT_WITH_EMAIL" = "The email address on this facebook account conflicts with an existing crewcam account. Press 'Login and Link' to log in with that email account and link it with facebook. NOTE: You can unlink at anytime.";
+
+//UPLOADS
+"CREW_SELECT_TITLE" = "Choose a Crew";
+"CREW_SELECT_TEXT" = "You forgot to select a crew!";
+
+"UPLOAD_ERROR_ALERT_TITLE" = "Uh oh...";
+"UPLOAD_ERROR_ALERT_TEXT" = "We dropped the ball on this one.  Your upload failed.";
+
+"NETWORK_UPLOAD_ERROR_ALERT_TITLE" = "Uh oh...";
+"NETWORK_UPLOAD_ERROR_ALERT_TEXT" = "Your upload failed due to no internet connectivity.";
+
+"VIDEO_SAVED_LOCALLY" = "Video was saved locally.";
+"ASK_TO_SAVE_LOCALLY" = "Want us to save the video locally so you can upload it later?";
+
+//CREW VIEW
+"LONELY_ADD_CREWS_TEXT" = "Hmm... You don't seem to be a member of any crews you can post to.  Click the \"Add\" button to add one, or check the invites tab to see if anyone has invited you!";
+
+"LEAVE_CREW" = "Leave Crew";
+"LEAVING_CREW_CONFIRMATION" = "Are you sure you want to leave?  You will be missed!";
+
+"ERROR_LEAVING_TITLE" = "Uh Oh...";
+"ERROR_LEAVING_TEXT" = "Error leaving the crew.  Try again later.";
+
+//CREWS VIEW
+"LOGOUT_CONFIRM_TITLE" = "Logout";
+"LOGOUT_CONFIRM_TEXT" = "Are you sure you want to log out?";
+"UNLINK_FB_CONFIRM_TITLE" = "Unlink Facebook?";
+"UNLINK_FB_CONFIRM_TEXT" = "Unlinking facebook will make it harder to find your friends on Crewcam.";
+"SUCCESS_UNLINK_FB_TITLE" = "Unlink Facebook Complete";
+"SUCCESS_UNLINK_FB_TEXT" = "To login in the future please use the email address associated with your facebook.";
+"LINK_FB_ERROR_TITLE" = "Could not link to Facebook";
+"OTHER_ACCOUNT_LINKED" = "Another Crewcam user has already linked to this facebook account.";
+"GENERAL_FB_LINK_ERROR" = "Hmm... something went wrong trying to link your account. Please try again.";
+"LINK_FAILED_LOGIN_WORKED" = "There was an error linking this account to Facebook. Please try again later.";
+
+//INVITES VIA FACEBOOK
+"FACEBOOK_INVITE_CAPTION_TEXT" = "";
+"FACEBOOK_INVITE_IMAGE_URL" = "http://crewc.am/crewcam_icon.png";
+"FACEBOOK_INVITE_DESCRIPTION_TEXT" = "The easiest way to do mobile video messaging.  Available now on the App Store!";
+
+//INVITE LINKS
+"INVITE_CREWCAM_URL" = "http://www.crewc.am";
+
+//POSTING VIDEO TO FACEBOOK
+"FACEBOOK_VIDEO_LINK" = "http://crewc.am/index_test.php?videoURL=CC_VIDEO_URL";
+"FACEBOOK_IMAGE_LINK" = "CC_VIDEO_IMAGE_URL";
+"FACEBOOK_VIDEO_MESSAGE" = "Has posted a new video on Crewcam!";
+"FACEBOOK_VIDEO_DESCRIPTION" = "Watch it now!";
+"FACEBOOK_PERMISSIONS_TITLE" = "Facebook Permissions";
+"FACEBOOK_PERMISSIONS_TEXT" = "You have not enabled the required Facebook permissions. Log out and back in to enable the \"Post on your behalf\" permission.";
+"FACEBOOK_ENABLED_TEXT" = "You are not linked with a Facebook account. Link your accounts through the setting tab to use this feature."; 
+
+/*These guys are strings for inside the app, so like regular text and stuff*/
+
+//LOCATION LOADING
+"NO_LOCATION_TO_LOAD" = "No Location :(";
+"LOADING_LOCATION_TEXT" = "Loading Location";
