@@ -9,4 +9,4 @@
 #####Script I'm currently working on to route VPN traffic for a specific application (Unix Systems only)
 
 ###ip-notify
-####Script I wrote to notify me via email of when my home networks IP address changes (beceause DDNS' are lame)  
+#####Script I wrote to notify me via email of when my home networks IP address changes (beceause DDNS' are lame)  
